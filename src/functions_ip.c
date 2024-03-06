@@ -11,13 +11,16 @@ bool is_correct_octet(int octet) {
 bool input_string_ip() {
     int first_octet, second_octet, third_octet, fourth_octet;
     char c;
-    scanf("%d.%d.%d.%d%c", &first_octet, &second_octet, &third_octet, &fourth_octet, &c);
+    if (scanf("%d.%d.%d.%d%c", &first_octet, &second_octet, &third_octet, &fourth_octet, &c) &&
+    (c == ' ' || c == '\n')) {
     return is_correct_octet(first_octet) &&
         is_correct_octet(second_octet) &&
         is_correct_octet(third_octet) && 
-        is_correct_octet(fourth_octet) &&
-        (c == ' ' || c == '\n');
-
+        is_correct_octet(fourth_octet);
+    } else {
+        print_error();
+        return false;
+    }
 }
 
 void print_error() {
