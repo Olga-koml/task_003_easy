@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-
 bool is_correct_octet(int octet) {
     return octet >= 0 && octet < 256;
 }
